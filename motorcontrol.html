@@ -33,60 +33,35 @@
 									</ul>
 								</header>
 
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h2>Hi, Welcome to<br />
-											Gryphon Robotics Programming Division!</h2>
-											<p>Your guide to begin programming FRC robots.</p>
-										</header>
-										<p>This guide is intended to be used as the one and only stop for FRC programming, compiling together guides and resources provided by FRC in one easily accessible place.</p>
-										<ul class="actions">
-											<li><a href="#" class="button big">Learn More</a></li>
-										</ul>
-									</div>
-									<span class="image object">
-										<img src="images/gryphons.png" alt="Gryphon Robotics Logo" />
-									</span>
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h2>Chapter 4: Robot Motion - Motor Control</h2>
+									</header>
+
+									<p>Now that we are ready to program, we will start with declaring and controlling individual motors. Anything that interacts with the robot hardware must use the wpilib and its methods.</p>
+
+                  <p>We do not control the motors directly. Instead, the motors are physically connected to motor controllers that are then controlled by the code. There are many types of motor controllers that FRC uses. These include Victors, Sparks, Jaguars, Talons, and others. To effectively be able to utilize the full power of motor controllers (and any object in that sense), the use of the wpilib API becomes very important. The API (linked at the bottom of every chapter for reference) contains information on how to declare and use every object in wpilib. The objects range from motor controllers and sensors to buses and inputs/outputs on the roboRIO.
+                  </p>
+
+                  <p>As an example, we will construct and control a Victor motor controller. Looking at the API entry for Victor, located <a href="https://robotpy.readthedocs.io/projects/wpilib/en/latest/wpilib/Victor.html" target="_blank">here</a>, you can see that the <code>Victor</code> object takes a single argument called <i>channel</i>. The channel here is the port that the motor controller is connected to on the RoboRIO. Many other objects use a similar approach when being constructed since they are mostly connected to the RoboRIO ports as well.
+
+                  <pre><code>self.motor = wpilib.Victor(4)</code></pre>
+
+                  <p><b>Code 4.1:</b> as discussed, the following code resides in <code>robotinit</code> and constructs a Victor object connected to PWM port 4 of the RoboRIO. The code to the left of the equal sign is the variable name accompanied by <code>self</code> to turn it into a global one that can be called in any function.</p>
+
+                  <p>Now to be able to operate the motor, you have to set the PWM speed. PWM speed ranges from -1.0 to 1.0 specifying the speed and direction of the motors. To set the motor to full speed forward, you can do this:</p>
+
+                  <pre><code>self.motor.set(1)</code></pre>
+
+                  <p><b>Code 4.2:</b> note that instead of using <code>wpilib.Victor(4).set(1)</code> we utilized the new variable name we had asigned earlier, simplifying the process.</p>
+
+                  <hr class="major" />
+
+                  <p><i><b>Chapter resources: </b><a href="https://robotpy.readthedocs.io/en/stable/install/index.html" target="_blank">Installation Documentation</a>, <a href="https://wpilib.screenstepslive.com/s/currentCS/m/getting_started/l/144981-frc-software-component-overview" target="_blank">FRC Software Component Overview</a></i></p>
+
 								</section>
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Header</h2>
-									</header>
-									<div class="features">
-										<article>
-											<span class="icon fa-gem"></span>
-											<div class="content">
-												<h3>Header</h3>
-												<p>Text</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-paper-plane"></span>
-											<div class="content">
-												<h3>Header</h3>
-												<p>Text</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-rocket"></span>
-											<div class="content">
-												<h3>Header</h3>
-												<p>Text</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-signal"></span>
-											<div class="content">
-												<h3>Header</h3>
-												<p>Text</p>
-											</div>
-										</article>
-									</div>
-								</section>
 						</div>
 					</div>
 
@@ -107,13 +82,13 @@
 										<h2>Table of Contents</h2>
 									</header>
 									<ul>
-										<li><b>></b> Introduction</li>
+										<li><a href="index.html">Introduction</a></li>
 										<li><a href="overviewofsoftware.html">Overview of Software</a></li>
                     <li><a href="codestructure.html">Code Structure</a></li>
                     <li>
 											<span class="opener">Robot Motion</span>
 											<ul>
-												<li><a href="motorcontrol.html">Motor Control</a></li>
+												<li><b>></b> Motor Control</li>
 												<li><a href="#">Differential Drive</a></li>
                         <li><a href="#">Joystick Control</a></li>
 											</ul>
@@ -156,6 +131,7 @@
 
 						</div>
 					</div>
+
 			</div>
 
 		<!-- Scripts -->

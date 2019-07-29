@@ -1,0 +1,30 @@
+''' import statements go at the top of the program '''
+import wpilib
+
+
+class MyRobot(wpilib.TimedRobot):
+    ''' robot program starts here '''
+    def robotInit(self):
+        ''' function that is run at the beginning of the match '''
+        pass
+
+    def autonomousInit(self):
+        ''' function that is run at the beginning of the autonomous phase '''
+        pass
+
+    def autonomousPeriodic(self):
+        ''' function that is run periodically during the autonomous phase '''
+        pass
+
+    def teleopInit(self):
+        ''' function that is run at the beginning of the tele-operated phase '''
+        pass
+
+    def teleopPeriodic(self):
+        ''' function that is run periodically during the tele-operated phase '''
+        pass
+
+
+if __name__ == '__main__':
+    ''' running the entire robot program '''
+    wpilib.run(MyRobot)

@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>FRC 5549 Programming Division</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<h3><a href="https://www.frc5549.org/" target="_blank" class="logo"><strong>FRC 5549</strong></a> | Programming Division</h3>
+                  <!-- Social -->
+									<ul class="icons">
+                    <li><a href="https://www.instagram.com/team5549/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="https://twitter.com/team_5549" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="https://www.youtube.com/channel/UC5XEPfs11Xf4ZjbVung9oVQ" target="_blank" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
+										<li><a href="https://www.snapchat.com/add/team5549" target="_blank" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+										<li><a href="https://github.com/FRC5549Robotics" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h2>Chapter 2: Overview of Software</h2>
+									</header>
+
+									<p>In this chapter, I will be going over all the software you need to successfully program, test, and deploy to a FRC robot. Download links will be provided as well as installation instructions.</p>
+
+                  <h4>This is the list of the core software:</h4>
+									<ol>
+                    <li><a href="#one">Latest version of Python</a></li>
+                    <li><a href="#two">PyCharm IDE</a></li>
+                    <li><a href="#three">RobotPy</a></li>
+                    <li><a href="#four">PyFRC</a></li>
+                    <li><a href="#five">PyNetworkTables</a></li>
+                    <li><a href="#six">RobotPy-NavX</a></li>
+                    <li><a href="#seven">RobotPy-CTRE</li>
+                    <li><a href="#eight">FRC Update Suite</a></li>
+                  </ol>
+
+									<hr class="major" />
+
+									<ol>
+                    <li id="one">
+                      <h3>Latest version of Python</h3>
+									    <p>At the time of writing, the latest version of Python is 3.7.3 and can be downloaded from the <a href="https://www.python.org/" target="_blank">official Python website</a>. We will need Python so that our programs can be interpreted once we pair it with a compatible IDE. Follow the installation guide making sure to check the option that adds Python to PATH and the option to install PIP (Python’s package manager).</p>
+                    </li>
+
+                    <li id="two">
+                      <h3>PyCharm IDE</h3>
+                      <p>An integrated development environment (IDE), PyCharm fulfills our needs, delivering a fairly easy to use environment while providing us with features that will make coding easier such as a handy debugger and intelligent code suggestions. It can be downloaded from <a href="https://www.jetbrains.com/pycharm/" target="_blank">JetBrains website.</a></p>
+                    </li>
+
+                    <li id="three">
+                      <h3>RobotPy</h3>
+                      <p>Python’s implementation of the FRC platform, RobotPy allows our code to be understood and interpreted on the robot. You do not need to perform this step if you are setting up your computer. The installation is done directly to the robot and is outlined here for explanation purposes only.</p>
+                    </li>
+
+                    <li id="four">
+                      <h3>PyFRC</h3>
+                      <p>Installs the WPI library that contains the classes and modules FRC uses for robot programming. The installation also allows communication with a robot that has RobotPy installed on it. Follow the installation guide <a href="https://robotpy.readthedocs.io/en/stable/install/pyfrc.html" target="_blank">here</a>.</p>
+                    </li>
+
+                    <li id="five">
+                      <h3>PyNetworkTables</h3>
+                      <p>Special package that allows for further features by letting teams communicate with their robots through NetworkTables. Follow the installation guide <a href="https://robotpy.readthedocs.io/en/stable/install/pynetworktables.html" target="_blank">here</a>.</p>
+                    </li>
+
+                    <li id="six">
+                      <h3>RobotPy-NavX</h3>
+                      <p>Library to communicate with NavX gyro sensors. Add it to your project by going to Files >> Settings >> Project Interpreter in PyCharm and adding RobotPy-NavX.</p>
+                    </li>
+
+                    <li id="seven">
+                      <h3>RobotPy-CTRE</h3>
+                      <p>Library to communicate with sensors and motors from Cross The Road Electronics. Add it to your project by going to Files >> Settings >> Project Interpreter in PyCharm and adding RobotPy-CTRE.</p>
+                    </li>
+
+                    <li id="eight">
+                      <h3>FRC Update Suite</h3>
+                      <p>Non-programming FRC Software Suite that contains Driver Station, RoboRIO Imaging Tool, and Radio Configuration Utility. Download it from the <a href="http://www.ni.com/download/first-robotics-software-2017/7904/en/" target="_blank">official National Instruments website</a>. You will need to create a free account to be able to download the software.</p>
+                    </li>
+
+
+                    <ul>
+                      <li>
+                        <h4>Driver Station</h4>
+                        <p>The main software to run the code, manage tests, and control peripherals.</p>
+                        <span class="image fit"><img src="images/5549 PD Guide/images/Fig2.1a.png" alt="Figure 2.1a" /></span>
+                        <p><b>Figure 2.1a</b>: overview of the Driver Station software and the operation tab.</p>
+                        <span class="image fit"><img src="images/5549 PD Guide/images/Fig2.1b.png" alt="Figure 2.1b" /></span>
+                        <p><b>Figure 2.1b</b>: Driver Station diagnostics tab.</p>
+                        <span class="image fit"><img src="images/5549 PD Guide/images/Fig2.1c.png" alt="Figure 2.1c" /></span>
+                        <p><b>Figure 2.1c</b>: Driver Station setup tab.</p>
+                        <span class="image fit"><img src="images/5549 PD Guide/images/Fig2.1d.png" alt="Figure 2.1d" /></span>
+                        <p><b>Figure 2.1d</b>: Driver Station USB devices tab.</p>
+                        <span class="image fit"><img src="images/5549 PD Guide/images/Fig2.1e.png" alt="Figure 2.1e" /></span>
+                        <p><b>Figure 2.1e</b>: Driver Station power and CAN tab.</p>
+                      </li>
+
+                      <li>
+                        <h4>RoboRIO Imaging Tool</h4>
+                        <p>Used to update or upgrade the RoboRIO by flashing the newest firmware. Instructions for properly formatting and imaging the RoboRIO can be found <a href="https://wpilib.screenstepslive.com/s/currentCS/m/getting_started/l/1009233-imaging-your-roborio" target="_blank">here</a>.</p>
+                        <span class="image fit"><img src="images/5549 PD Guide/images/Fig2.2.png" alt="Figure 2.2" /></span>
+                        <p><b>Figure 2.2</b>: overview of RoboRIO Imaging Tool.</p>
+                      </li>
+                      
+                      <li>
+                        <h4>Radio Configuration Utility</h4>
+                        <p>Used to modify the radio configuration and settings. Instructions for properly imaging the Radio can be found <a href="https://wpilib.screenstepslive.com/s/currentCS/m/getting_started/l/144986-programming-your-radio" target="_blank">here</a>.</p>
+                        <span class="image fit"><img src="images/5549 PD Guide/images/Fig2.3.png" alt="Figure 2.3" /></span>
+                        <p><b>Figure 2.3</b>: overview of Radio Configuration Utility. Instructions on properly imaging the Radio can be found at the bottom of the Figure.</p>
+                      </li>
+                    </ul>
+                  </ol>
+
+                  <hr class="major" />
+
+                  <p><i><b>Chapter resources: </b><a href="https://robotpy.readthedocs.io/en/stable/install/index.html" target="_blank">Installation Documentation</a>, <a href="https://wpilib.screenstepslive.com/s/currentCS/m/getting_started/l/144981-frc-software-component-overview" target="_blank">FRC Software Component Overview</a></i></p>
+
+                  <ul class="actions">
+                    <li><a href="codestructure.html" class="button large">Next Chapter</a></li>
+                  </ul>
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Table of Contents</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Introduction</a></li>
+										<li><b>></b> Overview of Software</li>
+                    <li><a href="codestructure.html">Code Structure</a></li>
+                    <li>
+											<span class="opener">Robot Motion</span>
+											<ul>
+												<li><a href="#">Motor Control</a></li>
+												<li><a href="#">Differential Drive</a></li>
+                        <li><a href="#">Joystick Control</a></li>
+											</ul>
+                    </li>
+                    <li>
+											<span class="opener">Sensors</span>
+											<ul>
+												<li><a href="#">Gyro</a></li>
+												<li><a href="#">Encoder</a></li>
+                        <li><a href="#">Ultrasonic</a></li>
+                        <li><a href="#">Limit Switch</a></li>
+											</ul>
+                    </li>
+                    <li><a href="#">PID Control</a></li>
+                    <li><a href="#">Deploying & Testing</a></li>
+                    <li><a href="#">Using a Dashboard</a></li>
+                    <li><a href="#">General Troubleshooting</a></li>
+                    <li><a href="#">Further Resources</a></li>
+                    <li><a href="elements.html">Elements</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>Please feel free to let us know if you have any questions, concerns, and/or suggestions for content.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:info@frc5549.org">info@frc5549.org</a></li>
+										<li class="icon solid fa-home">7731 Leesburg Pike<br />
+										Falls Church, VA 22043</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; FRC 5549 Gryphon Robotics. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

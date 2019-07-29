@@ -116,7 +116,7 @@ input, select, textarea {
 /* Type */
 
 	body, input, select, textarea {
-		color: #7f888f;
+		color: #2c2d2e;
 		font-family: "Open Sans", sans-serif;
 		font-size: 13pt;
 		font-weight: 400;
@@ -153,13 +153,13 @@ input, select, textarea {
 		-ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		border-bottom: dotted 1px;
-		color: #f56a6a;
+		color: #08a702;
 		text-decoration: none;
 	}
 
 		a:hover {
-			border-bottom-color: #f56a6a;
-			color: #f56a6a !important;
+			border-bottom-color: #74b800;
+			color: #74b800 !important;
 		}
 
 			a:hover strong {
@@ -268,11 +268,11 @@ input, select, textarea {
 	}
 
 	code {
-		background: rgba(230, 235, 237, 0.25);
+		background: rgba(238, 255, 204);
 		border-radius: 0.375em;
 		border: solid 1px rgba(210, 215, 217, 0.75);
 		font-family: "Courier New", monospace;
-		font-size: 0.9em;
+		font-size: 1.0em;
 		margin: 0 0.25em;
 		padding: 0.25em 0.65em;
 	}
@@ -280,7 +280,7 @@ input, select, textarea {
 	pre {
 		-webkit-overflow-scrolling: touch;
 		font-family: "Courier New", monospace;
-		font-size: 0.9em;
+		font-size: 1.0em;
 		margin: 0 0 2em 0;
 	}
 
@@ -1797,7 +1797,7 @@ input, select, textarea {
 	}
 
 	header.major > :last-child {
-		border-bottom: solid 3px #f56a6a;
+		border-bottom: solid 3px #74b800;
 		display: inline-block;
 		margin: 0 0 2em 0;
 		padding: 0 0.75em 0.5em 0;
@@ -1864,8 +1864,8 @@ input, select, textarea {
 		input[type="url"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #f56a6a;
-			box-shadow: 0 0 0 1px #f56a6a;
+			border-color: #74b800;
+			box-shadow: 0 0 0 1px #74b800;
 		}
 
 	select {
@@ -1973,8 +1973,8 @@ input, select, textarea {
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #f56a6a;
-			box-shadow: 0 0 0 1px #f56a6a;
+			border-color: #74b800;
+			box-shadow: 0 0 0 1px #74b800;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -2311,7 +2311,7 @@ input, select, textarea {
 			}
 
 			ul.contact li:before {
-				color: #f56a6a;
+				color: #74b800;
 				display: inline-block;
 				font-size: 1.5em;
 				height: 1.125em;
@@ -2370,7 +2370,7 @@ input, select, textarea {
 			}
 
 				ul.pagination li > .page.active {
-					background-color: #f56a6a;
+					background-color: #74b800;
 					color: #ffffff !important;
 				}
 
@@ -2488,8 +2488,8 @@ input, select, textarea {
 		background-color: transparent;
 		border-radius: 0.375em;
 		border: 0;
-		box-shadow: inset 0 0 0 2px #f56a6a;
-		color: #f56a6a !important;
+		box-shadow: inset 0 0 0 2px #74b800;
+		color: #74b800 !important;
 		cursor: pointer;
 		display: inline-block;
 		font-family: "Roboto Slab", serif;
@@ -2560,7 +2560,7 @@ input, select, textarea {
 		input[type="button"].primary,
 		button.primary,
 		.button.primary {
-			background-color: #f56a6a;
+			background-color: #74b800;
 			box-shadow: none;
 			color: #ffffff !important;
 		}
@@ -2677,7 +2677,7 @@ input, select, textarea {
 			}
 
 				.features article .icon:before {
-					color: #f56a6a;
+					color: #74b800;
 					font-size: 2.75rem;
 					position: relative;
 					top: 0.05em;
@@ -3330,7 +3330,7 @@ input, select, textarea {
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
-		border-bottom: solid 5px #f56a6a;
+		border-bottom: solid 5px #74b800;
 		padding: 6em 0 1em 0;
 		position: relative;
 	}
@@ -3525,7 +3525,7 @@ input, select, textarea {
 		}
 
 			#menu ul a:hover, #menu ul span:hover {
-				color: #f56a6a;
+				color: #74b800;
 			}
 
 			#menu ul a.opener, #menu ul span.opener {
@@ -3563,7 +3563,7 @@ input, select, textarea {
 				}
 
 				#menu ul a.opener:hover:before, #menu ul span.opener:hover:before {
-					color: #f56a6a;
+					color: #74b800;
 				}
 
 				#menu ul a.opener.active + ul, #menu ul span.opener.active + ul {
