@@ -1,0 +1,206 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>FRC 5549 PD - Robot Motion: Motor Control</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<h3><a href="https://www.frc5549.org/" target="_blank" class="logo"><strong>FRC 5549</strong></a> | <a href="index.html">Programming Division</a></h3>
+                            <!-- Social -->
+									<ul class="icons">
+                                        <li><a href="https://www.instagram.com/team5549/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="https://twitter.com/team_5549" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="https://www.youtube.com/channel/UC5XEPfs11Xf4ZjbVung9oVQ" target="_blank" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
+										<li><a href="https://www.snapchat.com/add/team5549" target="_blank" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+										<li><a href="https://github.com/FRC5549Robotics" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h2>Chapter 4: Robot Motion - Motor Control</h2>
+									</header>
+
+									<p>Now that we are ready to program, we will start with declaring and controlling individual motors. Anything that interacts with the robot hardware must use the wpilib and its methods.</p>
+
+                                    <p>We do not control the motors directly. Instead, the motors are physically connected to motor controllers that are then controlled by the code. There are many types of motor controllers that FRC uses. These include Victors, Sparks, Jaguars, Talons, and others. To effectively be able to utilize the full power of motor controllers (and any object in that sense), the use of the wpilib API becomes very important. The API (linked at the bottom of every chapter for reference) contains information on how to declare and use every object in wpilib. The objects range from motor controllers and sensors to buses and inputs/outputs on the roboRIO.
+                                    </p>
+
+                                    <p>As an example, we will construct and control a Victor motor controller. Looking at the API entry for Victor, located <a href="https://robotpy.readthedocs.io/projects/wpilib/en/latest/wpilib/Victor.html" target="_blank">here</a>, you can see that the <code>Victor</code> object takes a single argument called <i>channel</i>. The channel here is the port that the motor controller is connected to on the RoboRIO. Many other objects use a similar approach when being constructed since they are mostly connected to the RoboRIO ports as well.
+
+                                    <pre><code>self.motor = wpilib.Victor(4)</code></pre>
+
+                                    <p><b>Code 4.1:</b> as discussed, the following code resides in <code>robotInit</code> and constructs a Victor object connected to PWM port 4 of the RoboRIO. The code to the left of the equal sign is the variable name accompanied by <code>self</code> to turn it into a global one that can be called in any function.</p>
+
+                                    <p>Now to be able to operate the motor, you have to set the PWM speed. PWM speed ranges from -1.0 to 1.0 specifying the speed and direction of the motors. To set the motor to full speed forward, you can do this:</p>
+
+                                    <pre><code>self.motor.set(1)</code></pre>
+
+                                    <p><b>Code 4.2:</b> note that instead of using <code>wpilib.Victor(4).set(1)</code> we utilized the new variable name we had asigned earlier, simplifying the process.</p>
+
+                                    <h3>Drive Train Control</h3>
+                                    <p>Now that you know how to set up and control individual motors, you will be able to use that knowledge to combine such motors into groups that can ultimately drive a completed robot. The focus will be on <emphasis>Differential Drive</emphasis> which is a type of drive train control that works with a physical 2 or 4 wheel robot platform, which most robots utilize.</p>
+                  
+                                    <p>In the next example, you will construct four Victor motors, group them into the left side and right side of the robot, and create a Differential Drive object that can control each side. At first, we will have the robot drive forward autonomously, then map it to a joystick for manual operation.</p>
+
+                                    <pre><code>
+from wpilib.drive import DifferentialDrive
+
+class MyRobot(wpilib.TimedRobot):
+  def robotInit(self):
+      self.frontLeft = wpilib.Victor(1)
+      self.rearLeft = wpilib.Victor(2)
+      self.frontRight = wpilib.Victor(3)
+      self.rearRight = wpilib.Victor(4)
+
+      self.leftSide = wpilib.SpeedControllerGroup(self.frontLeft, self.rearLeft)
+      self.rightSide = wpilib.SpeedControllerGroup(self.frontRight, self.rearRight)
+
+      self.drive = DifferentialDrive(self.leftSide, self.rightSide)
+                                    </code></pre>
+
+                                    <p><b>Code 4.3:</b> referencing the documentation for <a href="https://robotpy.readthedocs.io/projects/wpilib/en/latest/wpilib.drive/DifferentialDrive.html#wpilib.drive.differentialdrive.DifferentialDrive.tankDrive" target="_blank">Differential Drive</a> , we have constructed four motor controllers (as this is a robot with four motors) and using the <code>SpeedControllerGroup</code> method, we have mapped specific motors to a side. Finally, using the imported DifferentialDrive package, a drive group is constructed.</p>
+
+                                    <p>The foundation for driving the robot is constructed; however, the code does not know what to do with it. For this reason, you will have to specify a drive method in <code>teleopPeriodic</code> or <code>autonomousPeriodic</code> and its controls; whether that's autonomous controls or joystick is up to you.</p>
+
+                                    <h4>Types of Differential Drive:</h4>
+                                    <ul>
+                                    <li><b>Tank Drive</b> - traditional tank controls with two joystick axes controlling each side of the robot.</li>
+                                    <li><b>Arcade Drive</b> - one joystick axis controlling robot movement and turns.</li>
+                                    <li><b>Curvature Drive</b> - similar to Arcade Drive but with the addition of a quick turn mode.</li>
+                                    </ul>
+
+                                    <h4>Autonomous Driving</h4>
+                                    <p>You can utilize the <a href="https://robotpy.readthedocs.io/projects/wpilib/en/latest/wpilib/Timer.html?highlight=timer" target="_blank">timer class</a> in wpilib to control the robot movements in autonomous. This is the simplest way and by no means accurate but will get you started in programming autonomous controls. To do so, simply add <code>self.timer = wpilib.Timer()</code> to <code>robotInit</code>.</p>
+
+                                    <pre><code>
+def autonomousInit(self):
+    self.timer.reset()
+    self.timer.start()
+
+def autonomousPeriodic(self):
+    if self.timer.get() < 5.0:
+        self.drive.tankDrive(0.5, 0)  
+    else:
+        self.drive.tankDrive(0, 0) 
+                                    </code></pre>
+
+                                    <p><b>Code 4.4:</b> let's analyze the code above. In <code>autonomousInit</code> the constructed timer is called to reset and then start the timer as soon as the autonomous mode of the match is called. While autonomous is running, the robot uses the <code>get()</code> method of the Timer class to, you guessed it, get the match time. Using this match time, you can specify for a set amount of time for the robot to move forward at half speed using the newly created <code>self.drive</code>. As soon as the 5 seconds is passed, the robot will stop moving.</p>
+                  
+                                    <p>This method of autonomous robot motion can be modified to allow for all sorts of cruising through the field. By nesting <emphasis>if statements</emphasis>, you can create more complex robot motion such as turning with different speeds. However, be mindful that due to the alignment of the motors, <b>negative speed might actually go forward and vice versa</b>. For this reason, always place the robot off the ground and test wheel rotations.</p>
+
+                                    <h4>Teleoperated Driving</h4>
+                                    <p>If you wish to use a joystick to operate the robot, you can do so with the <a href="https://robotpy.readthedocs.io/projects/wpilib/en/latest/wpilib/Joystick.html?highlight=Joystick" target="_blank">joystick class</a>. The joystick here is a generic name for any kind of input ranging from game controllers such as an Xbox controller to flight joysticks and even a button box. To construct a joystick object, add the following code to <code>robotInit</code>: <code>self.joystick = wpilib.Joystick(1)</code>. The Joystick class also requires a port number but this time, the port number is the one on your computer. You can find out which port number the joystick is connected to using the <emphasis>USB Devices tab</emphasis> in the Driver Station software.</p>
+
+                                    <pre><code>
+def teleopPeriodic(self):
+    self.leftAxis = self.joystick.getRawAxis(1)
+    self.rightAxis = self.joystick.getRawAxis(2)
+
+    self.drive.tankDrive(self.leftAxis, self.rightAxis)
+                                    </code></pre>
+
+                                    <p><b>Code 4.5:</b> the Driver Station software maps joystick slots to specific ports as well as their buttons and axes to specific numbers. In the example above, axis 1 controls the left side of the robot and axis 2 controls the right side. Then, they are passed onto <code>tankDrive</code> object that is under <code>Differential Drive</code> so that the robot can be controlled manually using the joystick. Notice that the arguments each method takes are listed under the respective API entries that are also posted at the bottom of each chapter.</p>
+
+                                    <hr class="major" />
+
+                                    <p><i><b>Chapter resources: </b><a href="https://robotpy.readthedocs.io/projects/wpilib/en/latest/api.html" target="_blank">WPILIB API</a> | <a href="https://robotpy.readthedocs.io/en/latest/guide/anatomy.html" target="_blank">Anatomy of Robot</a> | <a href="https://wpilib.screenstepslive.com/s/currentCS/m/java/l/914814-wpilib-drive-classes-drivetrain-types" target="_blank">Drive Train Types</a> | <a href="https://robotpy.readthedocs.io/projects/wpilib/en/latest/wpilib.drive/DifferentialDrive.html#wpilib.drive.differentialdrive.DifferentialDrive.tankDrive" target="_blank">Differential Drive</a> | <a href="https://robotpy.readthedocs.io/projects/wpilib/en/latest/wpilib/Joystick.html?highlight=Joystick" target="_blank">Joystick </a> | <a href="https://robotpy.readthedocs.io/projects/wpilib/en/latest/wpilib/Jaguar.html" target="_blank">Jaguar</a> | <a href="https://robotpy.readthedocs.io/projects/wpilib/en/latest/wpilib/Spark.html" target="_blank">Spark</a> | <a href="https://robotpy.readthedocs.io/projects/wpilib/en/latest/wpilib/Talon.html" target="_blank">Talon</a> | <a href="https://robotpy.readthedocs.io/projects/wpilib/en/latest/wpilib/Victor.html" target="_blank">Victor</a></i></p>
+                  
+                                    <ul class="actions">
+                                    <li><a href="code-structure.html" class="button large">Previous Chapter</a></li>
+                                    <li><a href="#" class="button large">Next Chapter</a></li>
+                                    </ul>
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Table of Contents</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Introduction</a></li>
+										<li><a href="overview-of-software.html">Overview of Software</a></li>
+                                        <li><a href="code-structure.html">Code Structure</a></li>
+                                        <li>
+											<span class="opener">Robot Motion</span>
+											<ul>
+												<li>-> Motor Control</li>
+												<li><a href="pneumatics.html">Pneumatics</a></li>
+											</ul>
+                                        </li>
+                                        <li><a href="joystick-utilities.html">Joystick Utilities</a></li>
+                                        <li>
+											<span class="opener">Sensors</span>
+											<ul>
+												<li><a href="gyro.html">Gyro</a></li>
+												<li><a href="encoder.html">Encoder</a></li>
+                                                <li><a href="ultrasonic.html">Ultrasonic</a></li>
+                                                <li><a href="limit-switch.html">Limit Switch</a></li>
+											</ul>
+                                        </li>
+                                        <li><a href="pid-control.html">PID Control</a></li>
+                                        <li><a href="deploying-&-testing.html">Deploying & Testing</a></li>
+                                        <li><a href="using-a-dashboard.html">Using a Dashboard</a></li>
+                                        <li><a href="general-troubleshooting.html">General Troubleshooting</a></li>
+                                        <li><a href="further-resources.html">Further Resources</a></li>
+                                        <li><a href="elements.html">Elements</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>Please feel free to let us know if you have any questions, concerns, and/or suggestions for content.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">info@frc5549.org</a></li>
+										<li class="icon solid fa-home">7731 Leesburg Pike<br />
+										Falls Church, VA 22043</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; FRC 5549 Gryphon Robotics. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
