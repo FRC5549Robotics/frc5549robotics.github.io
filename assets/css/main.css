@@ -286,7 +286,7 @@ input, select, textarea {
 
 		pre code {
 			display: block;
-			line-height: 1.75;
+			line-height: 1.50;
 			padding: 1em 1.5em;
 			overflow-x: auto;
 		}

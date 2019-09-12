@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <!--
 	Editorial by HTML5 UP
 	html5up.net | @ajlkn
@@ -23,9 +23,9 @@
 							<!-- Header -->
 								<header id="header">
 									<h3><a href="https://www.frc5549.org/" target="_blank" class="logo"><strong>FRC 5549</strong></a> | <a href="index.html">Programming Division</a></h3>
-                  <!-- Social -->
+                            <!-- Social -->
 									<ul class="icons">
-                    <li><a href="https://www.instagram.com/team5549/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                                        <li><a href="https://www.instagram.com/team5549/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 										<li><a href="https://twitter.com/team_5549" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 										<li><a href="https://www.youtube.com/channel/UC5XEPfs11Xf4ZjbVung9oVQ" target="_blank" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
 										<li><a href="https://www.snapchat.com/add/team5549" target="_blank" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
@@ -34,78 +34,111 @@
 								</header>
 
 							<!-- Content -->
-								<section>
-									<header class="main">
-										<h2>Deploying & Testing</h2>
-									</header>
+                                <section>
+                                    <header class="main">
+                                        <h2>Deploying & Testing</h2>
+                                    </header>
 
-                  <h3>Under construction. Check back soon!</h3>
+                                    <p>You have finished writing the code, but now you want to see it in action! To directly deploy the code onto the robot, navigate to where your robot code is saved. There, run the following:</p>
 
-								</section>
+                                    <pre><code>
+py -3 robot.py deploy
+                                    </code></pre>
+
+                                    <p>
+                                        <b>Code 12.1:</b> since all robot code is saved as <code>robot.py</code>, the deploy keyword in the command line deploys directly to the robot while running tests in the process.
+                                        Note that if this is the first time that you are deploying, you will be asked to confirm the SSH connection as well as provide the team number.
+                                    </p>
+
+                                    <h4>Testing without Deploying</h4>
+                                    <p>If you wish to run the unit tests on the code and not deploy, then replace the <code>deploy</code> keyword with <code>test</code></p>
+
+                                    <pre><code>
+py -3 robot.py test 
+                                    </code></pre>
+
+                                    <p>
+                                        There are more options for when you are deploying code. For example, to deploy quickly through skipping tests, add
+                                        <code>--skip-tests</code> at the end of the general code for deploying. Additionally, if the pyfrc version is not matched to
+                                        the robot version, you will receive a version mismatch error. In that case, deploy code by adding <code>--no-version-check</code>
+                                        to the end of the general code for deploying.
+                                    </p>
+
+                                    <hr class="major" />
+
+                                    <p><i><b>Chapter resources: </b><a href="https://robotpy.readthedocs.io/en/stable/guide/deploy.html" target="_blank">Deploying to Robot</a></i></p>
+
+                                    <ul class="actions">
+                                        <li><a href="pid-control.html" target="_blank" class="button large">Previous Chapter</a></li>
+                                        <li><a href="using-a-dashboard.html" class="button large">Next Chapter</a></li>
+                                    </ul>
+
+                                </section>
 
 						</div>
 					</div>
 
 				<!-- Sidebar -->
 					<div id="sidebar">
-						<div class="inner">
-								<
-              <!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Table of Contents</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">Introduction</a></li>
-										<li><a href="overview-of-software.html">Overview of Software</a></li>
-                    <li><a href="code-structure.html">Code Structure</a></li>
-                    <li>
-											<span class="opener">Robot Motion</span>
-											<ul>
-												<li><a href="motor-control.html">Motor Control</a></li>
-												<li><a href="pneumatics.html">Pneumatics</a></li>
-											</ul>
-                    </li>
-                    <li><a href="joystick-utilities.html">Joystick Utilities</a></li>
-                    <li>
-											<span class="opener">Sensors</span>
-											<ul>
-												<li><a href="gyro.html">Gyro</a></li>
-												<li><a href="encoder.html">Encoder</a></li>
-                        <li><a href="ultrasonic.html">Ultrasonic</a></li>
-                        <li><a href="limit-switch.html">Limit Switch</a></li>
-											</ul>
-                    </li>
-                    <li><a href="pid-control.html">PID Control</a></li>
-                    <li>-> Deploying & Testing</li>
-                    <li><a href="using-a-dashboard.html">Using a Dashboard</a></li>
-                    <li><a href="general-troubleshooting.html">General Troubleshooting</a></li>
-                    <li><a href="further-resources.html">Further Resources</a></li>
-                 
-                
-              <!-- Section -->
-                   <li><a href="elements.html">Elements</a></li>
-									</ul>
-								</nav>				<section>
-									<header class="major">
-										<h2>Get in touch</h2>
-									</header>
-									<p>Please feel free to let us know if you have any questions, concerns, and/or suggestions for content.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">info@frc5549.org</a></li>
-										<li class="icon solid fa-home">7731 Leesburg Pike<br />
-										Falls Church, VA 22043</li>
-									</ul>
-								</section>
+                        <div class="inner">
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; FRC 5549 Gryphon Robotics. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a>.</p>
-								</footer>
+                            <!-- Menu -->
+                            <nav id="menu">
+                                <header class="major">
+                                    <h2>Table of Contents</h2>
+                                </header>
+                                <ul>
+                                    <li><a href="index.html">Introduction</a></li>
+                                    <li><a href="overview-of-software.html">Overview of Software</a></li>
+                                    <li><a href="code-structure.html">Code Structure</a></li>
+                                    <li>
+                                        <span class="opener">Robot Motion</span>
+                                        <ul>
+                                            <li><a href="motor-control.html">Motor Control</a></li>
+                                            <li><a href="pneumatics.html">Pneumatics</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="joystick-utilities.html">Joystick Utilities</a></li>
+                                    <li>
+                                        <span class="opener">Sensors</span>
+                                        <ul>
+                                            <li><a href="gyro.html">Gyro</a></li>
+                                            <li><a href="encoder.html">Encoder</a></li>
+                                            <li><a href="ultrasonic.html">Ultrasonic</a></li>
+                                            <li><a href="limit-switch.html">Limit Switch</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="pid-control.html">PID Control</a></li>
+                                    <li>-> Deploying & Testing</li>
+                                    <li><a href="using-a-dashboard.html">Using a Dashboard</a></li>
+                                    <li><a href="general-troubleshooting.html">General Troubleshooting</a></li>
+                                    <li><a href="further-resources.html">Further Resources</a></li>
+                                    <li><a href="elements.html">Elements</a></li>
+                                </ul>
+                            </nav>
 
-						</div>
+                            <!-- Section -->
+                            <section>
+                                <header class="major">
+                                    <h2>Get in touch</h2>
+                                </header>
+                                <p>Please feel free to let us know if you have any questions, concerns, and/or suggestions for content.</p>
+                                <ul class="contact">
+                                    <li class="icon solid fa-envelope"><a href="#">info@frc5549.org</a></li>
+                                    <li class="icon solid fa-home">
+                                        7731 Leesburg Pike<br />
+                                        Falls Church, VA 22043
+                                    </li>
+                                </ul>
+                            </section>
+
+                            <!-- Footer -->
+                            <footer id="footer">
+                                <p class="copyright">&copy; FRC 5549 Gryphon Robotics. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a>.</p>
+                            </footer>
+
+                        </div>
 					</div>
-
 			</div>
 
 		<!-- Scripts -->
