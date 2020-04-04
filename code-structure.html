@@ -9,7 +9,8 @@
 		<title>FRC 5549 PD - Code Structure</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -36,27 +37,28 @@
                     <!-- Content -->
                     <section>
                         <header class="main">
-                            <h2>Chapter 3: Code Structure</h2>
+                            <h2>Chapter 3.1: Basic Structure</h2>
                         </header>
+                        
+                        <p>RobotPy programs follow a specific code structure that acts as the base of any FRC robot code. The code is sectioned into functions that are called by FMS (Field Management System) when the Driver Station is connected to the field through the ethernet cable at the competitions. However, you can manually call each section through the Driver Station software outside of competitions and during test phases.</p>
 
-                        <p>RobotPy programs follow a specific code structure that, if learned, can be utilized to construct any robot program. The code is sectioned into functions that are called periodically by FMS (Field Management System) when the Driver Station is connected to the field through the ethernet cable at the competitions. However, you can manually call each section through the Driver Station software outside of competitions and during test phases.</p>
 
                         <h3>Robot Initialization</h3>
-                        <p>Called upon program startup and should be used for constructing robot objects such as motors and sensors. Variables that are used in other functions should also go here.</p>
+                        <p>Called upon robot startup and should be used for constructing robot objects such as motors and sensors. Variables that are used in other functions should also go here.</p>
 
                         <h3>Autonomous Initialization</h3>
-                        <p>Called during the prep phase of autonomous. Should be used for actions that need to be initialized specifically for the autonomous phase such as starting the timer and resetting sensor data.</p>
+                        <p>Called at the start of the autonomous period. Should be used for actions that need to be initialized specifically for the autonomous phase such as starting the timer and resetting sensor data.</p>
 
                         <h3>Autonomous Periodic</h3>
                         <p>Called periodically during the autonomous phase. Actions such as robot movement that only happen during autonomous phase should be placed here.</p>
 
                         <h3>Teleop Initialization</h3>
-                        <p>Called during the prep phase of teleop. Should be used for actions that need to be initialized or happen only once before teleop takes place.</p>
+                        <p>Called during the start of teleoperated phase. Should be used for actions that need to be initialized or happen only once before teleop takes place.</p>
 
                         <h3>Teleop Periodic</h3>
-                        <p>Called periodically during the teleop phase and should be utilized for robot movement and data collection from sensors that happen during teleop phase.</p>
+                        <p>Called periodically during the teleoperated phase and should be utilized for robot movement and data collection from sensors that happen during teleop phase.</p>
 
-                        <p>*Note that there are more functions and code sections but these are the basic ones that will get you started on your path to program a functional FRC robot.</p>
+			<p>**Note: There are more functions and code sections but these are the basic ones that will get you started on your path to program a functional FRC robot.</p>
 
                         <pre><code>
 ''' import statements go at the top of the program '''
@@ -92,7 +94,7 @@ if __name__ == '__main__':
 
                                     </code></pre>
 
-                        <p><b>Code 3.1:</b> basic code struture in Python. At the top of the program, the WPI library is imported which allows the other functions to be recognized. <code>def</code> declares a function under the overall class called MyRobot. As explained later, <code>self</code> allows us to turn variables into global ones that are recognized in other functions.</p>
+                        <p><b>Code 3.1:</b> This is basic code struture for FRC programming. At the top of the program, the WPI library is imported which allows the other functions to be recognized. <code>def</code> declares a function under the overall class called MyRobot. As explained later, <code>self</code> allows us to turn variables into global ones that are recognized in other functions.</p>
 
                         <hr class="major" />
 
@@ -112,39 +114,15 @@ if __name__ == '__main__':
                 <div class="inner">
 
                     <!-- Menu -->
-                    <nav id="menu">
-                        <header class="major">
-                            <h2>Table of Contents</h2>
-                        </header>
-                        <ul>
-                            <li><a href="index.html">Introduction</a></li>
-                            <li><a href="overview-of-software.html">Overview of Software</a></li>
-                            <li>-> Code Structure</li>
-                            <li>
-                                <span class="opener">Robot Motion</span>
-                                <ul>
-                                    <li><a href="motor-control.html">Motor Control</a></li>
-                                    <li><a href="pneumatics.html">Pneumatics</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="joystick-utilities.html">Joystick Utilities</a></li>
-                            <li>
-                                <span class="opener">Sensors</span>
-                                <ul>
-                                    <li><a href="gyro.html">Gyro</a></li>
-                                    <li><a href="encoder.html">Encoder</a></li>
-                                    <li><a href="ultrasonic.html">Ultrasonic</a></li>
-                                    <li><a href="limit-switch.html">Limit Switch</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="pid-control.html">PID Control</a></li>
-                            <li><a href="deploying-&-testing.html">Deploying & Testing</a></li>
-                            <li><a href="using-a-dashboard.html">Using a Dashboard</a></li>
-                            <li><a href="general-troubleshooting.html">General Troubleshooting</a></li>
-                            <li><a href="further-resources.html">Further Resources</a></li>
-                            <li><a href="elements.html">Elements</a></li>
-                        </ul>
-                    </nav>
+                    <div id="nav-menu">
+
+                    </div>
+
+                    <script>
+                    $(function(){
+                            $('#nav-menu').load('menu.html');
+                    });
+                    </script>
 
                     <!-- Section -->
                     <section>
