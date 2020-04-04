@@ -3331,7 +3331,7 @@ input, select, textarea {
 		display: -ms-flex;
 		display: flex;
 		border-bottom: solid 5px #74b800;
-		padding: 6em 0 1em 0;
+		padding: 2em 0 1em 0;
 		position: relative;
 	}
 
