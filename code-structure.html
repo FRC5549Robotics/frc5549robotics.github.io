@@ -10,7 +10,6 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="assets/css/main.css" />
-        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -58,7 +57,7 @@
                         <h3>Teleop Periodic</h3>
                         <p>Called periodically during the teleoperated phase and should be utilized for robot movement and data collection from sensors that happen during teleop phase.</p>
 
-			<p>**Note: There are more functions and code sections but these are the basic ones that will get you started on your path to program a functional FRC robot.</p>
+			            <p>**Note: There are more functions and code sections but these are the basic ones that will get you started on your path to program a functional FRC robot.</p>
 
                         <pre><code>
 ''' import statements go at the top of the program '''
@@ -96,6 +95,54 @@ if __name__ == '__main__':
 
                         <p><b>Code 3.1:</b> This is basic code struture for FRC programming. At the top of the program, the WPI library is imported which allows the other functions to be recognized. <code>def</code> declares a function under the overall class called MyRobot. As explained later, <code>self</code> allows us to turn variables into global ones that are recognized in other functions.</p>
 
+                    </section>
+
+                    <!-- Content -->
+                    <section>
+                        <header class="main">
+                            <h2>Chapter 3.2: File Structure</h2>
+                        </header>
+                        
+                        <p>While it is possible to write all code in just robot.py, it is recommended to split up the code into subsystems. 
+                           This allows for the code to be more organized and readable. In addition, variables will only need to be change in one location as 
+                           opposed to multiple locations. </p>
+
+                        <p>
+                           This is an example of a structure that could be used.
+                        </p>
+
+                        <pre><code>
+main/
+    components/
+        drive.py
+        vision.py
+        dashboard.py
+        subsystem1.py
+        subsystem2.py
+        subsystem3.py
+    robot.py
+    README.txt
+                        </code></pre>
+
+                        <p>Inside of these files, make a class. For example, drive.py would have a Drive class. Inside of that class, make functions. For example, 
+                            forward. Now, this file can be imported into robot.py using <code>import components/drive.py</code>. Once imported, just call the function in robot.py using 
+                            <code>self.drive.forward()</code>. 
+                        </p>
+
+                        <pre><code>
+import wpilib
+
+class Drive(self):
+    def robotInit(self):
+        pass
+
+    def forward(self):
+        pass
+                        </code></pre>
+
+                        <p><b>Code 3.2:</b> This is an example of a file in the components folder. Variables may also be passed into the function if needed.</p>
+
+
                         <hr class="major" />
 
                         <p><i><b>Chapter resources:</b> <a href="https://frc-pdr.readthedocs.io/en/latest/GoodPractices/structure.html" target="_blank">Code Structure</a></i></p>
@@ -105,55 +152,79 @@ if __name__ == '__main__':
                         </ul>
 
                     </section>
-
                 </div>
             </div>
 
-            <!-- Sidebar -->
-            <div id="sidebar">
-                <div class="inner">
+            
 
-                    <!-- Menu -->
-                    <div id="nav-menu">
+				<!-- Sidebar -->
+                <div id="sidebar">
+                    <div class="inner">
+
+                        <!-- Menu -->
+                        <nav id="menu">
+                            <header class="major">
+                                <h2>Table of Contents</h2>
+                            </header>
+                            <ul>
+                                <li><a href="index.html">Introduction</a></li>
+                                <li><a href="overview-of-software.html">Overview of Software</a></li>
+                                <li>-> Code Structure</li>
+                                <li>
+                                    <span class="opener">Robot Motion</span>
+                                    <ul>
+                                        <li><a href="motor-control.html">Motor Control</a></li>
+                                        <li><a href="pneumatics.html">Pneumatics</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="joystick-utilities.html">Joystick Utilities</a></li>
+                                <li>
+                                    <span class="opener">Sensors</span>
+                                    <ul>
+                                        <li><a href="gyro.html">Gyro</a></li>
+                                        <li><a href="encoder.html">Encoder</a></li>
+                                        <li><a href="ultrasonic.html">Ultrasonic</a></li>
+                                        <li><a href="limit-switch.html">Limit Switch</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="pid-control.html">PID Control</a></li>
+                                <li><a href="deploying-&-testing.html"> Deploying & Testing</a></li>
+                                <li><a href="using-a-dashboard.html">Using a Dashboard</a></li>
+                                <li><a href="general-troubleshooting.html">General Troubleshooting</a></li>
+                                <li><a href="further-resources.html">Further Resources</a></li>
+                            </ul>
+                        </nav>
+
+                        <!-- Section -->
+                        <section>
+                            <header class="major">
+                                <h2>Get in touch</h2>
+                            </header>
+                            <p>Please feel free to let us know if you have any questions, concerns, and/or suggestions for content.</p>
+                            <ul class="contact">
+                                <li class="icon solid fa-envelope"><a href="#">info@frc5549.org</a></li>
+                                <li class="icon solid fa-home">
+                                    7731 Leesburg Pike<br />
+                                    Falls Church, VA 22043
+                                </li>
+                            </ul>
+                        </section>
+
+                        <!-- Footer -->
+                        <footer id="footer">
+                            <p class="copyright">&copy; FRC 5549 Gryphon Robotics. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a>.</p>
+                        </footer>
 
                     </div>
-
-                    <script>
-                    $(function(){
-                            $('#nav-menu').load('menu.html');
-                    });
-                    </script>
-
-                    <!-- Section -->
-                    <section>
-                        <header class="major">
-                            <h2>Get in touch</h2>
-                        </header>
-                        <p>Please feel free to let us know if you have any questions, concerns, and/or suggestions for content.</p>
-                        <ul class="contact">
-                            <li class="icon solid fa-envelope"><a href="mailto: info@frc5549.org">info@frc5549.org</a></li>
-                            <li class="icon solid fa-home">
-                                7731 Leesburg Pike<br />
-                                Falls Church, VA 22043
-                            </li>
-                        </ul>
-                    </section>
-
-                    <!-- Footer -->
-                    <footer id="footer">
-                        <p class="copyright">&copy; FRC 5549 Gryphon Robotics. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a>.</p>
-                    </footer>
-
                 </div>
-            </div>
         </div>
 
-        <!-- Scripts -->
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/js/browser.min.js"></script>
-            <script src="assets/js/breakpoints.min.js"></script>
-            <script src="assets/js/util.js"></script>
-            <script src="assets/js/main.js"></script>
+    <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
 
 </body>
 </html>
